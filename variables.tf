@@ -70,11 +70,3 @@ variable "artifact_registry_description" {
   description = "La descripción del Artifact Registry"
   default     = "Registro privado de imagenes Docker"
 }
-variable "git_repo" {
-  type        = string
-  description = "Nombre del Repositorio Git"
-}
-variable "gcs_state_bucket" {
-  type        = string
-  description = "Nombre del bucket para almacenar el estado de Terraform"
-}
