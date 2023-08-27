@@ -10,7 +10,7 @@ jobs:
   provision:
     runs-on: ubuntu-latest
     env:
-      TF_VAR_project_id: ${{ secrets.GCP_PROJECT_ID }}
+      TF_VAR_project_id: "${{ secrets.GCP_PROJECT_ID }}"
     permissions:
       contents: 'read'
       id-token: 'write'
@@ -34,7 +34,7 @@ jobs:
           
       - name: Terraform Plan
         id: plan
-        run: terraform plan -no-color"
+        run: terraform plan -no-color
         continue-on-error: true
 
       - name: Terraform Plan Status
@@ -42,4 +42,4 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve"
+        run: terraform apply -auto-approve
