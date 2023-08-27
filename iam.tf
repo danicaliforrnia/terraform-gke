@@ -5,8 +5,8 @@ resource "google_service_account" "nodes_service_account" {
 
 resource "google_project_iam_member" "nodes_service_account_roles" {
   project = var.project_id
-  role   = "roles/container.nodeServiceAccount"
-  member = "serviceAccount:${google_service_account.nodes_service_account.email}"
+  role    = "roles/container.nodeServiceAccount"
+  member  = "serviceAccount:${google_service_account.nodes_service_account.email}"
 }
 
 resource "google_service_account" "backend_service_account" {
