@@ -5,13 +5,7 @@ resource "google_service_account" "nodes_service_account" {
 
 resource "google_project_iam_member" "nodes_service_account_roles" {
   project = var.project_id
-  for_each = toset([
-    "roles/logging.logWriter",
-    "roles/monitoring.metricWriter",
-    "roles/monitoring.viewer",
-    "roles/stackdriver.resourceMetadata.writer"
-  ])
-  role   = each.value
+  role   = "roles/container.nodeServiceAccount"
   member = "serviceAccount:${google_service_account.nodes_service_account.email}"
 }
 
