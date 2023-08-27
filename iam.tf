@@ -30,7 +30,7 @@ resource "google_service_account_iam_binding" "backend_service_account_binding" 
 
 resource "google_artifact_registry_repository_iam_member" "repo_iam" {
   repository = google_artifact_registry_repository.imagina_registry.name
-  location = google_artifact_registry_repository.imagina_registry.location
+  location   = google_artifact_registry_repository.imagina_registry.location
   role       = "roles/artifactregistry.reader"
-  member     = "serviceAccount:${google_service_account.nodes_service_account.email}"  
+  member     = "serviceAccount:${google_service_account.nodes_service_account.email}"
 }
