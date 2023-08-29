@@ -26,7 +26,7 @@ module "network" {
   }
 }
 
-module "address-fe" {
+module "frontend-address" {
   source  = "terraform-google-modules/address/google"
   version = "3.1.3"
   global = true
