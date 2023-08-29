@@ -16,6 +16,7 @@ module "gke" {
   ip_range_pods                   = var.ip_range_pods_name
   ip_range_services               = var.ip_range_services_name
   master_ipv4_cidr_block          = var.master_range
+  network_policy                  = true
   horizontal_pod_autoscaling      = true
   enable_vertical_pod_autoscaling = true
   remove_default_node_pool        = true
