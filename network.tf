@@ -25,3 +25,10 @@ module "network" {
     ]
   }
 }
+
+module "address-fe" {
+  source  = "terraform-google-modules/address/google"
+  version = "3.1.3"
+  global = true
+  names  = [ "external-frontend-ip"]
+}
