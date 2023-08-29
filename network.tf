@@ -27,5 +27,5 @@ module "network" {
 }
 
 resource "google_compute_global_address" "frontend" {
-  name = "public-frontend-ip"
+  name = "public-ip"
 }
