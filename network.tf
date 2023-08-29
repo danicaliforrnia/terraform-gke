@@ -29,6 +29,6 @@ module "network" {
 module "frontend-address" {
   source  = "terraform-google-modules/address/google"
   version = "3.1.3"
-  global = true
-  names  = [ "external-frontend-ip"]
+  global  = true
+  names   = ["external-frontend-ip"]
 }
