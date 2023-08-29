@@ -26,11 +26,6 @@ module "network" {
   }
 }
 
-module "frontend-address" {
-  source     = "terraform-google-modules/address/google"
-  version    = "3.1.3"
-  project_id = var.project_id
-  region     = var.region
-  global     = true
-  names      = ["external-frontend-ip"]
+resource "google_compute_global_address" "frontend" {
+  name = "public-frontend-ip"
 }
