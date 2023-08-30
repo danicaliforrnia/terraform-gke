@@ -18,7 +18,7 @@ resource "google_service_account_iam_binding" "backend_service_account_binding" 
   service_account_id = "projects/${var.project_id}/serviceAccounts/${google_service_account.backend_service_account.email}"
   role               = "roles/iam.workloadIdentityUser"
   members = [
-    "serviceAccount:${var.project_id}.svc.id.goog[backend/backend-sa]",
+    "serviceAccount:${var.project_id}.svc.id.goog[default/backend-sa]",
   ]
 }
 

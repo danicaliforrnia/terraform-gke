@@ -1,0 +1,29 @@
+name: Terraform Destroy
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 0 * * *'
+
+jobs:
+  provision:
+    runs-on: ubuntu-latest
+    env:
+      TF_VAR_project_id: "${{ secrets.GCP_PROJECT_ID }}"
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: 'Authenticate to Google Cloud'
+        id: 'auth'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          workload_identity_provider: '${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}'
+          service_account: '${{ secrets.GCP_WORKLOAD_IDENTITY_SERVICE_ACCOUNT }}'
+
+      - name: Terraform Destroy
+        run: terraform destroy -auto-approve
