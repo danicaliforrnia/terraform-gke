@@ -28,7 +28,7 @@ module "gke" {
       name            = "${var.cluster_name}-node-pool-${var.env_name}"
       machine_type    = "e2-standard-4"
       min_count       = 2
-      max_count       = 5
+      max_count       = 3
       disk_size_gb    = 30
       auto_repair     = true
       auto_upgrade    = true
